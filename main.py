@@ -124,6 +124,26 @@ st.markdown("""The diagram illustrates the average URL length of the legitimate 
 st.markdown("---")
 st.markdown("### **Tejada**")
 
+domain_has_digits = df['domain_has_digits'].value_counts()
+colors = ['salmon', 'skyblue']
+plt.pie(domain_has_digits,  labels = ['Domains that does not contain digits', 'Domains that contains digits'], autopct='%1.1f%%', colors=colors)
+plt.title('Proportion of Domains Containing Digits')
+st.pyplot(plt)
+plt.clf()
+
+st.markdown("""Pie chart shows the proportions of domains that does and does not contain digits. As you can see from the data that was gathered,
+ a majority or ***89.1%*** to be precise of the domains from the data does not contain digits while ***10.9%*** of the domains from the data contains digits.""")
+
+has_punycode = df['has_punycode'].value_counts()
+colors = ['orange', 'lightgreen']
+plt.pie(has_punycode,  labels = ['URLs that does not have punycode', 'URLs that have punycode'], autopct='%1.1f%%', colors=colors)
+plt.title('Proportion of URLs with punycode')
+st.pyplot(plt)
+plt.clf()
+
+st.markdown("""Pie chart shows the proportions of URLs with and without punycode.
+ From the data that was gathered it shows that only ***0.1%*** URLs have punycode while an astounding ***99.9%*** of the URLs does not have punycode.""")
+
 # ================================================================================================================================== #
 
 st.markdown("---")
